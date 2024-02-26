@@ -1,5 +1,4 @@
-.input {
-    border-radius: 10px;
-    margin-bottom: 20px;
+.app {
+    background-image: linear-gradient(#b3dbff, #66b8ff, #0088ff);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

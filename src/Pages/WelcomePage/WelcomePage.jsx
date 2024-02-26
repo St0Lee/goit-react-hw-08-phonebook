@@ -15,19 +15,19 @@ const WelcomePage = () => {
 
     return(
         <div className={styles.wrap}>
-            <p>Welcome!</p>
-            <p> 
+            <p className={styles.text}>Welcome!</p>
+            <p className={styles.text}> 
                 Click 
                 <NavLink to="/register" className={styles.link}> Register </NavLink> 
-                to start using your Phonebook.
+                to start using Your Phonebook.
             </p>
-            <p>Or</p>
-            <p> 
+            <p className={styles.text}>Or</p>
+            <p className={styles.text}> 
                 Click 
                 <NavLink to="/login" className={styles.link}> Login </NavLink> 
                 if you already have an account.
             </p>
-            <p>You can also use options in the upper right corner.</p>
+            <p className={styles.text}>You can also use options in the upper right corner.</p>
         </div>
     )
 };

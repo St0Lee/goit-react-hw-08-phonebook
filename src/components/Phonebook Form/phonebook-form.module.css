@@ -33,6 +33,7 @@
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #333333;
 }
 
 .button {
@@ -40,13 +41,21 @@
     border-radius: 10px;
     padding: 10px;
     font-size: large;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button:hover {
+    box-shadow: 2px 2px 5px  #333333 inset;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title {
     font-weight: 800;
     font-size: 30px;
+    text-shadow: 2px 2px 5px #333333;
 }
 
 .input {
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

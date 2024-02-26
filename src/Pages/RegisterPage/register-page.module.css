@@ -1,0 +1,12 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px #333333;
+}

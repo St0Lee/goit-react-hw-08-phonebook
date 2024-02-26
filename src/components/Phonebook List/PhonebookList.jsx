@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { selectFilteredContacts } from "../../redux/contacts/contacts-selectors";
 import {fetchContacts, removeContact } from "../../redux/contacts/contacts-operations";
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio'
-
 import styles from "./phonebook-list.module.css"
 
 
@@ -28,15 +26,13 @@ const PhonebookList = () => {
         setIsRemoving(true)
         try {
           await dispatch(removeContact(id));
-          Notify.success("The contact has been successfully removed")
         } catch (error) {
-          Notify.failure("Couldn't remove a contact");
         } finally {
           setIsRemoving(false);
         }
       };
 
-    const elements = items.map (({id, name, number}) => <li key={id}>{name} {number} <button onClick={() => onRemoveContact(id)} type="button" disabled={isRemoving}>{isRemoving ? "Removing..." : "Remove contact"}</button></li>);
+    const elements = items.map (({id, name, number}) => <li key={id}>{name} {number} <button className={styles.button} onClick={() => onRemoveContact(id)} type="button" disabled={isRemoving}>{isRemoving ? "Removing..." : "Remove contact"}</button></li>);
 
 
     return (

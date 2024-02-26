@@ -4,8 +4,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 import * as contactsApi from "api/contacts-api";
 
-// import { fetchContactsLoading, fetchContactsSuccess, fetchContactsError,  postContactsLoading, postContactsSuccess,  postContactsError, removeContactsLoading, removeContactsSuccess, removeContactsError } from "./contacts-slice";
-
 export const fetchContacts = createAsyncThunk(
     "contacts/fetchAll",
     async(_, thunkAPI) => {
@@ -47,7 +45,7 @@ export const postContact = createAsyncThunk(
             return false;
         }
         else {
-            Notify.success("The contact has been successfully added")
+            Notify.success("The contact has been successfully added!")
         }
         }
     }
@@ -57,58 +55,13 @@ export const removeContact = createAsyncThunk(
     "contact/deleteContact",
     async(id, {rejectWithValue}) => {
         try{
+            Notify.success("The contact has been successfully removed!")
             await contactsApi.removeContact(id);
             return id;
         }
         catch(error){
+            Notify.failure("Couldn't remove a contact");
             return rejectWithValue(error.message);
         }
     }
 );
-
-
-// export const fetchContacts = () => {
-//     const func = async(dispatch) => {
-//         try{
-//             dispatch(fetchContactsLoading())
-//             const data = await contactsApi.getContacts();
-//             dispatch(fetchContactsSuccess(data));
-//         }
-//         catch(error){
-//             dispatch(fetchContactsError(error.message));
-//         }
-//     };
-
-//     return func;
-// };
-
-// export const postContact = (body) => {
-//     const func = async (dispatch) => {
-//         try{
-//             dispatch(postContactsLoading());
-//             const data = await contactsApi.postContact(body);
-//             dispatch(postContactsSuccess(data));
-//         }
-//         catch(error){
-//             dispatch(postContactsError(error.message))
-//         }
-//     };
-
-//     return func;
-// };
-
-// export const removeContact = (id) => {
-//     const func = async (dispatch) => {
-//         try{
-//             dispatch(removeContactsLoading())
-//             await contactsApi.removeContact(id);
-//             dispatch(removeContactsSuccess(id));
-//         }
-//         catch(error){
-//             dispatch(removeContactsError(error.message));
-//         }
-//     }
-
-//     return func;
-// }
-

@@ -1,5 +1,7 @@
 import { useState, useId} from "react";
 
+import styles from "./login-page.module.css"
+
 const INITIAL_STATE = {
     email: "",
     password: "",
@@ -34,16 +36,16 @@ const LoginForm = ({onSubmit}) => {
     const { email, password} = state;
 
     return (
-        <form onSubmit={handleSubmit}> 
-            <div>
-                <label htmlFor={emailId} >Email:</label>
-                <input id={emailId} value={email} onChange={handleChange} type="email" name="email" required /> 
+        <form onSubmit={handleSubmit} className={styles.wrap}> 
+            <div className={styles.container}>
+                <label className={styles.label} htmlFor={emailId} >Email:</label>
+                <input className={styles.input} id={emailId} value={email} onChange={handleChange} type="email" name="email" required /> 
             </div>
-            <div>
-                <label htmlFor={passwordId} >Password:</label>
-                <input id={passwordId} value={password} onChange={handleChange} type="password" name="password" required /> 
+            <div className={styles.container}>
+                <label className={styles.label} htmlFor={passwordId} >Password:</label>
+                <input className={styles.input} id={passwordId} value={password} onChange={handleChange} type="password" name="password" required /> 
             </div>
-            <button type="submit">Login</button>
+            <button className={styles.button} type="submit">Login</button>
         </form>
     )
 }

@@ -1,7 +1,3 @@
-.wrap{
-    background-color: aliceblue;
-}
-
 .listWrap {
     display: flex;
     flex-direction: column;

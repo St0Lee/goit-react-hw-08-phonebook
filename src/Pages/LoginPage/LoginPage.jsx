@@ -1,36 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 
 import { login } from "../../redux/auth/auth-operations";
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio'
+import { selectAuthError, selectAuthLoading } from "../../redux/auth/auth-selectors";
 
-import { selectAuthError, selectAuthLoading, selectIsLogin } from "../../redux/auth/auth-selectors";
+import styles from "./login-page.module.css"
+
 import Loader from "components/Loader/Loader";
-
 import LoginForm from "components/LoginForm/LoginForm";
 
 const LoginPage = () => {
     const authLoading = useSelector(selectAuthLoading);
     const authError = useSelector(selectAuthError);
-    const isLogin = useSelector(selectIsLogin);
 
     const dispatch = useDispatch();
 
     const handleLogin = data => {
         dispatch(login(data));
-        Notify.success("You've successfully loged in!")
     }
 
-    if(isLogin) {
-        return <Navigate to="/contacts" />    
-    }
     return(
-        <div>
-            <h1>Login</h1>
+        <div className={styles.wrap}>
+            <h1 className={styles.title}>Login</h1>
             {authLoading && <Loader />}
             <LoginForm  onSubmit={handleLogin}/>
-            {authError &&  Notify.failure("wrong email")}
+            {authError}
         </div>
     )
 }
